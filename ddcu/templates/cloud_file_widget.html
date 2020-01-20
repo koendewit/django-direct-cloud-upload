@@ -1,0 +1,19 @@
+{% load i18n %}
+
+<div class="ddcu_wrapper" data-ddcu-wid="{{ widget_identifier }}" data-ddcu-oid="{{ object_identifier }}" data-ddcu-guu-path="{{ guu_path }}">
+    <input
+        type="hidden" name="{{ widget.name }}"
+        {% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %}
+        {% for name, value in widget.attrs.items %}
+            {% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}
+        {% endfor %}
+    >
+    <span class="ddcu_current_file_name">{{ current_file_name }}</span>
+    <label>
+        <span class="ddcu_choose_file">{% if ddcu_image %}{% trans "Choose image" %}{% else %}{% trans "Choose file" %}{% endif %}</span>
+        <span class="ddcu_choose_other_file">{% if ddcu_image %}{% trans "Choose another image" %}{% else %}{% trans "Choose another file" %}<{% endif %}/span>
+        <input type="file" class="ddcu_file_input" {% if ddcu_image %}accept="image/*"{% endif %}/>
+    </label>
+    <span class="ddcu_delete_file">{% if ddcu_image %}{% trans "Delete image" %}{% else %}{% trans "Delete file" %}{% endif %}</span>
+</div>
+<div class="ddcu_overlay"><p class="ddcu_overlay_text">{% trans "Uploading file, please wait..." %}</p></div>

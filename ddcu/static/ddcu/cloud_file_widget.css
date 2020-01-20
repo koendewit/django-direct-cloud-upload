@@ -1,0 +1,11 @@
+.ddcu_wrapper label { width: auto; display: inline; margin: 0; padding: 0; float: none; line-height: normal; }
+.ddcu_file_input { display: none; }
+
+.ddcu_choose_file, .ddcu_choose_other_file, .ddcu_delete_file { display: inline-block; text-decoration: none;
+    color:white; background-color: #999999; margin: 0; padding: 6px 8px; cursor: pointer; border-radius: 4px; }
+.ddcu_choose_file:hover, .ddcu_choose_other_file:hover, .ddcu_delete_file:hover { background-color: black; }
+.ddcu_choose_other_file, .ddcu_delete_file { margin-left: 20px; }
+
+.ddcu_overlay { display: none; background-color: rgba(0,0,0,.7); align-items: center; justify-content: center;
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 10000; cursor: wait; }
+.ddcu_overlay_text { color: white; font-size: 24px; font-weight: bold; text-align: center; }
