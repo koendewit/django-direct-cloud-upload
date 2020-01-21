@@ -95,3 +95,29 @@ Now you can use the `CloudFileWidget` for any `django.forms.CharField` in a Form
 * `submit_timeout` (int) : Timeout (in seconds) for uploading the form. Defaults to 129600 (36 hours).
 
 When the form is being submitted, the field will contain the path in the bucket where the file has been uploaded to.
+
+## Including static JS and CSS files
+
+DDCU needs a Javascript and CSS file to function.
+
+### For admin sites
+
+Add a `Meta` model to your Admin classes:
+
+    class EbookAdmin(admin.ModelAdmin):
+        form = EbookForm
+        class Media:
+            css = { 'all': ("direct_cloud_upload/cloud_file_widget.css", ) }
+            js = ("direct_cloud_upload/ddcu_upload.js", )
+
+### For generic forms
+
+Every page containing a `CloudFileWidget` should include jQuery 1.9 (or newer) and the JS and CSS file in the `head` section:
+
+    {% load static %}
+    
+    <head>
+        <link rel="stylesheet" href="{% static "direct_cloud_upload/cloud_file_widget.css" %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{% static "direct_cloud_upload/ddcu_upload.js" %}"></script>
+    </head>
