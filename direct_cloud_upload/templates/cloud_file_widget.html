@@ -1,6 +1,6 @@
 {% load i18n %}
 
-<div class="ddcu_wrapper" data-ddcu-wid="{{ widget_identifier }}" data-ddcu-oid="{{ object_identifier }}" data-ddcu-guu-path="{{ guu_path }}">
+<div class="ddcu_wrapper" data-ddcu-token="{{ ddcu_token }}" data-ddcu-guu-path="{{ guu_path }}">
     <input
         type="hidden" name="{{ widget.name }}"
         {% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %}

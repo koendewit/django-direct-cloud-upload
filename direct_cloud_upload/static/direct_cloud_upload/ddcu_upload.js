@@ -55,8 +55,7 @@ $(document).ready(function() {
             var field = jqwrapper.find("input[type=hidden]");
             var f = jqwrapper.find(".ddcu_file_input").get(0).files[0];
             $.post(jqwrapper.data("ddcu-guu-path"), {
-                    wid: jqwrapper.data("ddcu-wid"),
-                    oid: jqwrapper.data("ddcu-oid"),
+                    token: jqwrapper.data("ddcu-token"),
                     filename: f.name,
                     content_type: f.type || "application/octet-stream",
                     csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()

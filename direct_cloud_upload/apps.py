@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 class DdcuConfig(AppConfig):
-    name = "ddcu"
+    name = "direct_cloud_upload"
     verbose_name = "django-direct-cloud-upload"
