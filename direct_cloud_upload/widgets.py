@@ -17,12 +17,14 @@ class CloudFileWidget(Widget):
                  path_prefix: str = "",
                  include_timestamp: bool = True,
                  submit_timeout: int = 36 * 3600,
+                 clearable = True,
                  *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.bucket_identifier = bucket_identifier
         self.path_prefix = path_prefix
         self.include_timestamp = include_timestamp
         self.submit_timeout = submit_timeout
+        self.clearable = clearable
 
     def get_context(self, name, value, attrs):
         context = super(CloudFileWidget, self).get_context(name, value, attrs)
@@ -32,4 +34,5 @@ class CloudFileWidget(Widget):
         context['ddcu_token'] = signer.sign(to_sign)
         context['guu_path'] = reverse('ddcu-get-upload-url')
         context['current_file_name'] = value.rsplit('/', 1)[-1] if value else ""
+        context['input_clearable'] = self.clearable
         return context

@@ -58,7 +58,7 @@ Upload the JSON file with the `gsutil cors set` command:
 
 ## Usage
 
-Create a `Bucket` instance first, and register it with DDCU :
+Create a `Bucket` instance and register it with DDCU :
 
     import google.cloud.storage
     import direct_cloud_upload
@@ -84,7 +84,7 @@ Now you can use the `CloudFileWidget` for any `django.forms.CharField` in a Form
                 )
             }
             
-`CloudFileWidget` has one required:
+`CloudFileWidget` has one required parameter:
 
 * `bucket_identifier` (string): identifier retrieved when registering the bucket with DDCU.
 
@@ -93,12 +93,13 @@ Now you can use the `CloudFileWidget` for any `django.forms.CharField` in a Form
 * `path_prefix` (string): Will be prepended automatically to the path of each file. This is useful for collecting all files uploaded via this widget into one directory.
 * `include_timestamp` (bool) : Determines if a timestamp will be added to the path. Defaults to `True`.
 * `submit_timeout` (int) : Timeout (in seconds) for uploading the form. Defaults to 129600 (36 hours).
+* `clearable` (bool) : Add a "Delete file" button to the widget. Defaults to `True`.
 
 When the form is being submitted, the field will contain the path in the bucket where the file has been uploaded to.
 
 ## Including static JS and CSS files
 
-DDCU needs a Javascript and CSS file to function.
+DDCU needs a Javascript and CSS file to function. If you use the widget in a django-admin site, you can use the first method to include these files. For all other sites, you should read the "For generic forms" section below.
 
 ### For admin sites
 
