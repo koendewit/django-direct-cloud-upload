@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-20 15:05+0100\n"
+"POT-Creation-Date: 2020-02-08 07:10+0100\n"
 "PO-Revision-Date: 2020-01-17 14:02+0100\n"
 "Last-Translator: Koen De Wit\n"
 "Language-Team: DDCU\n"
@@ -17,30 +17,30 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: ddcu/templates/cloud_file_widget.html:13
+#: templates/cloud_file_widget.html:13
 msgid "Choose image"
 msgstr "Kies afbeelding"
 
-#: ddcu/templates/cloud_file_widget.html:13
+#: templates/cloud_file_widget.html:13
 msgid "Choose file"
 msgstr "Kies bestand"
 
-#: ddcu/templates/cloud_file_widget.html:14
-msgid "Choose another image"
+#: templates/cloud_file_widget.html:14
+msgid "Choose an other image"
 msgstr "Kies andere afbeelding"
 
-#: ddcu/templates/cloud_file_widget.html:14
-msgid "Choose another file"
+#: templates/cloud_file_widget.html:14
+msgid "Choose an other file"
 msgstr "Kies ander bestand"
 
-#: ddcu/templates/cloud_file_widget.html:17
+#: templates/cloud_file_widget.html:17
 msgid "Delete image"
 msgstr "Verwijder afbeelding"
 
-#: ddcu/templates/cloud_file_widget.html:17
+#: templates/cloud_file_widget.html:17
 msgid "Delete file"
 msgstr "Verwijder bestand"
 
-#: ddcu/templates/cloud_file_widget.html:19
+#: templates/cloud_file_widget.html:19
 msgid "Uploading file, please wait..."
 msgstr "Bezig met uploaden, even geduld..."
