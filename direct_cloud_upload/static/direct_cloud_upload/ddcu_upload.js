@@ -9,7 +9,7 @@ function updateVisibility(wrapper, file_selected) {
     }
 }
 
-$(document).ready(function() {
+$(document).ready(function($) {
     $(".ddcu_wrapper").each(function(i, wrapper) {
         var file_selected = ($(wrapper).find(".ddcu_current_file_name").text() !== "");
         updateVisibility($(wrapper), file_selected);

@@ -103,13 +103,12 @@ DDCU needs a Javascript and CSS file to function. If you use the widget in a dja
 
 ### For admin sites
 
-Add a `Meta` model to your Admin classes:
+Let your Admin classes inherit from `DdcuAdminMixin`, which will instruct the admin interface to include the necessary files:
 
-    class EbookAdmin(admin.ModelAdmin):
+    from direct_cloud_upload import DdcuAdminMixin
+    
+    class EbookAdmin(admin.ModelAdmin, DdcuAdminMixin):
         form = EbookForm
-        class Media:
-            css = { 'all': ("direct_cloud_upload/cloud_file_widget.css", ) }
-            js = ("direct_cloud_upload/ddcu_upload.js", )
 
 ### For generic forms
 

@@ -26,11 +26,11 @@ msgid "Choose file"
 msgstr "Kies bestand"
 
 #: templates/cloud_file_widget.html:14
-msgid "Choose an other image"
+msgid "Choose other image"
 msgstr "Kies andere afbeelding"
 
 #: templates/cloud_file_widget.html:14
-msgid "Choose an other file"
+msgid "Choose other file"
 msgstr "Kies ander bestand"
 
 #: templates/cloud_file_widget.html:17
