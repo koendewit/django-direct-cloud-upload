@@ -94,6 +94,7 @@ Now you can use the `CloudFileWidget` for any `django.forms.CharField` in a Form
 * `include_timestamp` (bool) : Determines if a timestamp will be added to the path. Defaults to `True`.
 * `submit_timeout` (int) : Timeout (in seconds) for uploading the form. Defaults to 129600 (36 hours).
 * `clearable` (bool) : Add a "Delete file" button to the widget. Defaults to `True`.
+* `immediate_submit` (bool) : Immediately submit the form once the user selected a file. Defaults to `False`. _Warning:_ This is probably only useful if the file input is the only field in a form, because the user will not be able to input data in the other fields after selecting a file.
 
 When the form is being submitted, the field will contain the path in the bucket where the file has been uploaded to.
 

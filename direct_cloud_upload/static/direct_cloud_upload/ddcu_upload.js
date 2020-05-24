@@ -25,6 +25,7 @@ $(document).ready(function($) {
             var f = e.target.files[0];
             wrapper.find(".ddcu_current_file_name").text(f.name);
             file_selected = true;
+            if (wrapper.data('immediatesubmit') === "yes") wrapper.closest("form").submit();
         }
         updateVisibility(wrapper, file_selected);
     });
