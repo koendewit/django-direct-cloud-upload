@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import random, string, json, datetime, time
 
 from django.http import HttpResponseBadRequest, HttpResponse

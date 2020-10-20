@@ -118,7 +118,7 @@ Every page containing a `CloudFileWidget` should include jQuery 1.9 (or newer) a
     {% load static %}
     
     <head>
-        <link rel="stylesheet" href="{% static "direct_cloud_upload/cloud_file_widget.css" %}"></script>
+        <link rel="stylesheet" href="{% static "direct_cloud_upload/cloud_file_widget.css" %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="{% static "direct_cloud_upload/ddcu_upload.js" %}"></script>
     </head>

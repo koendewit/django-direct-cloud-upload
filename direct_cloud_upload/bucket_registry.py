@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 from typing import Dict
 from google.cloud.storage import Bucket
 
