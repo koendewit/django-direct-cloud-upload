@@ -3,6 +3,8 @@ Widget for uploading files from the client directly to a cloud storage bucket. C
 
 Works with Internet Explorer 11, Google Chrome, Mozilla Firefox and Apple Safari.
 
+After submitting a form containing this widget, the value of the widget will be the path of the file in the cloud bucket, not the file itself. Therefore, you cannot use this widget for a `django.db.models.FileField` or `django.forms.FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.
+
 ## Installation and setup
 
 Install DDCU using pip :
@@ -122,3 +124,9 @@ Every page containing a `CloudFileWidget` should include jQuery 1.9 (or newer) a
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="{% static "direct_cloud_upload/ddcu_upload.js" %}"></script>
     </head>
+
+## Troubleshooting
+
+### Error "No file was submitted. Check the encoding type on the form."
+
+If you get this error when submitting a form containing a `CloudFileWidget`, the widget is probably attached to a `django.db.models.FileField` or `django.forms.FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.
