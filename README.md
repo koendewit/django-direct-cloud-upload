@@ -3,7 +3,7 @@ Widget for uploading files from the client directly to a cloud storage bucket. C
 
 Works with Internet Explorer 11, Google Chrome, Mozilla Firefox and Apple Safari.
 
-After submitting a form containing this widget, the value of the widget will be the path of the file in the cloud bucket, not the file itself. Therefore, you cannot use this widget for a `django.db.models.FileField` or `django.forms.FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.
+After submitting a form containing this widget, the value of the widget will be the path of the file in the cloud bucket, not the file itself. Therefore, you cannot use this widget for a `FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.
 
 ## Installation and setup
 
@@ -97,6 +97,7 @@ Now you can use the `CloudFileWidget` for any `django.forms.CharField` in a Form
 * `submit_timeout` (int) : Timeout (in seconds) for uploading the form. Defaults to 129600 (36 hours).
 * `clearable` (bool) : Add a "Delete file" button to the widget. Defaults to `True`.
 * `immediate_submit` (bool) : Immediately submit the form once the user selected a file. Defaults to `False`. _Warning:_ This is probably only useful if the file input is the only field in a form, because the user will not be able to input data in the other fields after selecting a file.
+* `show_replace_button` (bool) : Add a "Choose other file" button to the widget if the field contains a file. Defaults to `True`. _Warning:_ `clearable` and `show_replace_button` should not both be set to False, otherwise the user has no way to change the file.
 
 When the form is being submitted, the field will contain the path in the bucket where the file has been uploaded to.
 
@@ -129,4 +130,4 @@ Every page containing a `CloudFileWidget` should include jQuery 1.9 (or newer) a
 
 ### Error "No file was submitted. Check the encoding type on the form."
 
-If you get this error when submitting a form containing a `CloudFileWidget`, the widget is probably attached to a `django.db.models.FileField` or `django.forms.FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.
+If you get this error when submitting a form containing a `CloudFileWidget`, the widget is probably attached to a `FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.

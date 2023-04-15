@@ -9,7 +9,9 @@
     <span class="ddcu_current_file_name">{{ current_file_name }}</span>
     <label>
         <span class="ddcu_choose_file">{% if ddcu_image %}{% trans "Choose image" %}{% else %}{% trans "Choose file" %}{% endif %}</span>
-        <span class="ddcu_choose_other_file">{% if ddcu_image %}{% trans "Choose other image" %}{% else %}{% trans "Choose other file" %}<{% endif %}/span>
+        {% if show_replace_button %}
+            <span class="ddcu_choose_other_file">{% if ddcu_image %}{% trans "Choose other image" %}{% else %}{% trans "Choose other file" %}{% endif %}</span>
+        {% endif %}
         <input type="file" class="ddcu_file_input" {% if ddcu_image %}accept="image/*"{% endif %}/>
     </label>
     {% if input_clearable %}<span class="ddcu_delete_file">{% if ddcu_image %}{% trans "Delete image" %}{% else %}{% trans "Delete file" %}{% endif %}</span>{% endif %}
