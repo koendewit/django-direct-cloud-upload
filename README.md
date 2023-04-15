@@ -110,7 +110,7 @@ Let your Admin classes inherit from `DdcuAdminMixin`, which will instruct the ad
 
     from direct_cloud_upload import DdcuAdminMixin
     
-    class EbookAdmin(admin.ModelAdmin, DdcuAdminMixin):
+    class EbookAdmin(DdcuAdminMixin):
         form = EbookForm
 
 ### For generic forms
