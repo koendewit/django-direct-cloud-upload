@@ -3,7 +3,7 @@ Widget for uploading files from the client directly to a cloud storage bucket. C
 
 Works with Internet Explorer 11, Google Chrome, Mozilla Firefox and Apple Safari.
 
-After submitting a form containing this widget, the value of the widget will be the path of the file in the cloud bucket, not the file itself. Therefore, you cannot use this widget for a `FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.
+**Important:** After submitting a form containing this widget, the value of the widget will be the path of the file in the cloud bucket, not the file itself. Therefore, you cannot use this widget for a `FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.
 
 ## Installation and setup
 
@@ -98,8 +98,9 @@ Now you can use the `CloudFileWidget` for any `django.forms.CharField` in a Form
 * `clearable` (bool) : Add a "Delete file" button to the widget. Defaults to `True`.
 * `immediate_submit` (bool) : Immediately submit the form once the user selected a file. Defaults to `False`. _Warning:_ This is probably only useful if the file input is the only field in a form, because the user will not be able to input data in the other fields after selecting a file.
 * `show_replace_button` (bool) : Add a "Choose other file" button to the widget if the field contains a file. Defaults to `True`. _Warning:_ `clearable` and `show_replace_button` should not both be set to False, otherwise the user has no way to change the file.
+* `allow_multiple` (bool) : Allow the user to select multiple files. Defaults to `False`. If set to true, the user can select multiple files for the field. Every file will have a "Remove" button. When this flag is set to `True`, the flags `clearable` , `immediate_submit` and `show_replace_button` have no effect.
 
-When the form is being submitted, the field will contain the path in the bucket where the file has been uploaded to.
+When the form is being submitted, the field will contain the path in the bucket where the file has been uploaded to. If `allow_multiple` is set to `True`, the field will contain JSON-encoded list of paths.
 
 ## Including static JS and CSS files
 
@@ -125,6 +126,14 @@ Every page containing a `CloudFileWidget` should include jQuery 1.9 (or newer) a
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="{% static "direct_cloud_upload/ddcu_upload.js" %}"></script>
     </head>
+
+## Styling the widget
+
+By default, the widget has a simple visual style matching the default Django admin interface. If you want to change the styling, you can copy the CSS file `direct_cloud_upload/cloud_file_widget.css` to your own `static` folder and change the link to the stylesheet.
+
+All buttons have the `ddcu_button` class.
+
+CSS classes starting with `ddcu_m_` are only used if `allow_multiple` is set to `True`.
 
 ## Troubleshooting
 
