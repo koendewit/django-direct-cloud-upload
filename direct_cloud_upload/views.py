@@ -1,16 +1,16 @@
 import random, string, json, datetime, time
 
+from django.core import signing
 from django.http import HttpResponseBadRequest, HttpResponse
 from django.views.decorators.http import require_POST
-from django.utils import timezone, baseconv
-import django.core.signing
+from django.utils import timezone
 from google.cloud.storage import Blob, Bucket
 
 from .bucket_registry import _bucket_registry
 
 
 URLSAFE_CHARACTERS = string.ascii_letters + string.digits + "-._~"
-signer = django.core.signing.Signer()
+signer = signing.Signer()
 
 
 @require_POST
@@ -19,11 +19,11 @@ def get_upload_url(request):
         return HttpResponseBadRequest(f"'token' is a required parameter.")
     try:
         token: str = signer.unsign(request.POST['token'])
-    except django.core.signing.BadSignature:
+    except signing.BadSignature:
         return HttpResponseBadRequest("Invalid token.")
 
     bucket_and_path, include_timestamp_indicator, allow_multiple_indicator, exptime = token.rsplit(':', 3)
-    if time.time() > baseconv.base62.decode(exptime):
+    if time.time() > signing.b62_decode(exptime):
         return HttpResponseBadRequest("Timeout expired.")
     timestring: str = "{0:%Y-%m-%d_%H-%M-%S/}".format(timezone.now()) if include_timestamp_indicator == '1' else ""
 
