@@ -11,7 +11,7 @@ Install DDCU using pip :
 
     pip install django-direct-cloud-upload
 
-Make sure that `'django.contrib.staticfiles'` is [set up properly](https://docs.djangoproject.com/en/stable/howto/static-files/) and add `'direct_cloud_upload'` to your `INSTALLED_APPS` setting :
+<a name="installed-apps"></a>Make sure that `'django.contrib.staticfiles'` is [set up properly](https://docs.djangoproject.com/en/stable/howto/static-files/) and add `'direct_cloud_upload'` to your `INSTALLED_APPS` setting :
 
     INSTALLED_APPS = [
         # ...
@@ -22,7 +22,7 @@ Make sure that `'django.contrib.staticfiles'` is [set up properly](https://docs.
     
     STATIC_URL = '/static/'
     
-DDCU provides a view that will generate a 'signed URL' for uploading a file. To enable this view, include DDCU's `urlpatterns` to your project's URLconf :
+<a name="urlpatterns"></a>DDCU provides a view that will generate a 'signed URL' for uploading a file. To enable this view, include DDCU's `urlpatterns` to your project's URLconf :
 
     import direct_cloud_upload
     
@@ -140,3 +140,11 @@ CSS classes starting with `ddcu_m_` are only used if `allow_multiple` is set to 
 ### Error "No file was submitted. Check the encoding type on the form."
 
 If you get this error when submitting a form containing a `CloudFileWidget`, the widget is probably attached to a `FileField`. Use a `django.db.models.TextField` (for models) or `django.forms.CharField` (for forms) instead.
+
+### Error "NoReverseMatch at <path>. Reverse for 'ddcu-get-upload-url' not found."
+
+You forget to [include DDCU's urlpatterns](#urlpatterns) to your project's URLconf.
+
+### Error "TemplateDoesNotExist at <path> cloud_file_widget.html"
+
+You forget to include `'direct_cloud_upload'` in your `INSTALLED_APPS` setting. ([see above](#installed-apps))
