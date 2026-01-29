@@ -3,7 +3,10 @@ import time
 
 from django.forms import Widget
 from django.urls import reverse
-from django.utils import baseconv
+try:
+    from django.core.signing import b62_encode
+except ImportError:
+    from baseconv import base62 as b62_encode  # For Django < 5.0
 from django.core.signing import Signer
 
 signer = Signer()
@@ -39,7 +42,7 @@ class CloudFileWidget(Widget):
         context = super(CloudFileWidget, self).get_context(name, value, attrs)
         include_timestamp_indicator = '1' if self.include_timestamp else '0'
         allow_multiple_indicator = '1' if self.allow_multiple else '0'
-        valid_until = baseconv.base62.encode(int(time.time()) + self.submit_timeout)
+        valid_until = b62_encode(int(time.time()) + self.submit_timeout)
         to_sign = f"{self.bucket_identifier}/{self.path_prefix}:{include_timestamp_indicator}:{allow_multiple_indicator}:{valid_until}"
         context['ddcu_token'] = signer.sign(to_sign)
         context['guu_path'] = reverse('ddcu-get-upload-url')

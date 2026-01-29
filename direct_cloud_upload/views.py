@@ -2,8 +2,12 @@ import random, string, json, datetime, time
 
 from django.http import HttpResponseBadRequest, HttpResponse
 from django.views.decorators.http import require_POST
-from django.utils import timezone, baseconv
+from django.utils import timezone
 import django.core.signing
+try:
+    from django.core.signing import b62_decode
+except ImportError:
+    from baseconv import base62 as b62_decode  # For Django < 5.0
 from google.cloud.storage import Blob, Bucket
 
 from .bucket_registry import _bucket_registry
@@ -23,7 +27,7 @@ def get_upload_url(request):
         return HttpResponseBadRequest("Invalid token.")
 
     bucket_and_path, include_timestamp_indicator, allow_multiple_indicator, exptime = token.rsplit(':', 3)
-    if time.time() > baseconv.base62.decode(exptime):
+    if time.time() > b62_decode(exptime):
         return HttpResponseBadRequest("Timeout expired.")
     timestring: str = "{0:%Y-%m-%d_%H-%M-%S/}".format(timezone.now()) if include_timestamp_indicator == '1' else ""
 
