@@ -7,7 +7,8 @@ import django.core.signing
 try:
     from django.core.signing import b62_decode
 except ImportError:
-    from baseconv import base62 as b62_decode  # For Django < 5.0
+    from django.utils.baseconv import base62 as b62_obj  # For Django < 5.0
+    b62_decode = b62_obj.decode
 from google.cloud.storage import Blob, Bucket
 
 from .bucket_registry import _bucket_registry

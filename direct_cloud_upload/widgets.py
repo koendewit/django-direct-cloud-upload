@@ -6,7 +6,8 @@ from django.urls import reverse
 try:
     from django.core.signing import b62_encode
 except ImportError:
-    from baseconv import base62 as b62_encode  # For Django < 5.0
+    from django.utils.baseconv import base62 as b62_obj  # For Django < 5.0
+    b62_encode = b62_obj.encode
 from django.core.signing import Signer
 
 signer = Signer()
