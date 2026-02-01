@@ -1,0 +1,65 @@
+# Copyright (C) 2020 Koen De Wit
+# This file is distributed under the same license as the django-direct-cloud-upload package.
+# FIRST AUTHOR koendewit@gmail.com, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-01 09:00+0100\n"
+"PO-Revision-Date: 2026-02-01 09:00+0100\n"
+"Last-Translator: Koen De Wit\n"
+"Language-Team: DDCU\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/cloud_file_widget.html:14 templates/cloud_file_widget.html:21
+msgid "this file will be deleted"
+msgstr "diese Datei wird gelöscht"
+
+#: templates/cloud_file_widget.html:15 templates/cloud_file_widget.html:22
+msgid "Delete"
+msgstr "Löschen"
+
+#: templates/cloud_file_widget.html:16 templates/cloud_file_widget.html:23
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: templates/cloud_file_widget.html:27
+msgid "Add image(s)"
+msgstr "Bild(er) hinzufügen"
+
+#: templates/cloud_file_widget.html:27
+msgid "Add file(s)"
+msgstr "Datei(en) hinzufügen"
+
+#: templates/cloud_file_widget.html:33
+msgid "Choose image"
+msgstr "Bild auswählen"
+
+#: templates/cloud_file_widget.html:33
+msgid "Choose file"
+msgstr "Datei auswählen"
+
+#: templates/cloud_file_widget.html:35
+msgid "Choose other image"
+msgstr "Anderes Bild auswählen"
+
+#: templates/cloud_file_widget.html:35
+msgid "Choose other file"
+msgstr "Andere Datei auswählen"
+
+#: templates/cloud_file_widget.html:39
+msgid "Delete image"
+msgstr "Bild löschen"
+
+#: templates/cloud_file_widget.html:39
+msgid "Delete file"
+msgstr "Datei löschen"
+
+#: templates/cloud_file_widget.html:42
+msgid "Uploading file, please wait..."
+msgstr "BDatei wird hochgeladen, bitte warten..."
